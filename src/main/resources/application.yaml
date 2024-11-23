@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: integration
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources:
+            - endpoint: ${AZURE_KEY_VAULT_URI}
+local:
+  timeout: 3000
+azure:
+  keyvault:
+    uri: ${AZURE_KEY_VAULT_URI}
+  identity:
+    client-id: ${AZURE_CLIENT_ID}
+    client-secret: ${AZURE_CLIENT_SECRET}
+    tenant-id: ${AZURE_TENANT_ID}
+logging:
+  level:
+    com.azure: DEBUG
+api-key-2: af
