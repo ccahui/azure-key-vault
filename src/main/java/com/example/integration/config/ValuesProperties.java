@@ -10,8 +10,12 @@ public class ValuesProperties {
     @Value("${local.timeout}")
     public String localValue;
     @Value("${api-key-2}")
-    public String apiKeyVault;
+    public String apiKeyVault2;
     @Value("${api-key-3}")
     public String apiKeyVault3;
+    @Value("${api-key-4}")
+    public String apiKeyVault4;
+    @Value("${api-key-5}")
+    public String apiKeyVault5;
 
 }

@@ -5,13 +5,19 @@ spring:
     azure:
       keyvault:
         secret:
-          property-sources:
-            - endpoint: ${AZURE_KEY_VAULT_URI}
+          property-sources[0]:
+            endpoint: ${AZURE_KEY_VAULT_URI}
+            secret-keys:
+              - api-key-2
+              - api-key-3
+          property-sources[1]:
+            endpoint: ${AZURE_KEY_VAULT_2_URI}
+            secret-keys:
+              - api-key-4
+              - api-key-5
 local:
   timeout: 3000
 azure:
-  keyvault:
-    uri: ${AZURE_KEY_VAULT_URI}
   identity:
     client-id: ${AZURE_CLIENT_ID}
     client-secret: ${AZURE_CLIENT_SECRET}
