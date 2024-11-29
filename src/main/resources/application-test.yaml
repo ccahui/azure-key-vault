@@ -1,0 +1,10 @@
+application:
+  name: integration-test
+cloud:
+  azure:
+    keyvault:
+      secret:
+        property-sources: [] # Deshabilitamos la configuración de KeyVault para pruebas
+
+local:
+  timeout: 3000
