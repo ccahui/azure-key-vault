@@ -12,6 +12,7 @@ spring:
               - api-key-3
             credential:
               managed-identity-enabled: true
+              client-id: ${USER_MANAGED_IDENTITY_CLIENT}
           property-sources[1]:
             endpoint: ${AZURE_KEY_VAULT_2_URI}
             secret-keys:
@@ -19,6 +20,7 @@ spring:
               - api-key-5
             credential:
               managed-identity-enabled: true
+              client-id: ${USER_MANAGED_IDENTITY_CLIENT}
 local:
   timeout: 3000
 logging:
