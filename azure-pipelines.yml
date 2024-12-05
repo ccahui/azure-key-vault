@@ -4,8 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 
-pool:
-  vmImage: ubuntu-latest
+
 
 steps:
 - task: Maven@3
