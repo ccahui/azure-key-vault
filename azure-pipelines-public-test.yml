@@ -26,6 +26,12 @@ steps:
       summaryFileLocation: '$(Build.SourcesDirectory)/target/site/jacoco/jacoco.xml'  # Ubicación del archivo de cobertura
       reportDirectory: '$(Build.SourcesDirectory)/target/site/jacoco'
       failIfCoverageEmpty: true
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Ruta donde se guarda el artefacto
