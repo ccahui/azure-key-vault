@@ -20,7 +20,7 @@ steps:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'clean package verify'
-  - task: PublishCodeCoverageResults@1
+  - task: PublishCodeCoverageResults@2
     inputs:
       codeCoverageTool: 'JaCoCo'  # Usamos JaCoCo como herramienta de cobertura
       summaryFileLocation: '$(Build.SourcesDirectory)/target/site/jacoco/jacoco.xml'  # Ubicación del archivo de cobertura
@@ -30,3 +30,4 @@ steps:
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Ruta donde se guarda el artefacto
       ArtifactName: 'drop'  # Nombre que tendrá el artefacto
+      publishLocation: 'Container'  # Ubicación predeterminada de los artefactos (Azure DevOps Container)
