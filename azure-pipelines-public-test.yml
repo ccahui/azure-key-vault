@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - task: Maven@3
+  - task: Maven@4
     inputs:
       mavenPomFile: 'pom.xml'
       mavenOptions: '-Xmx3072m'
@@ -19,4 +19,14 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      goals: 'package'
+      goals: 'clean package verify'
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: 'JaCoCo'  # Usamos JaCoCo como herramienta de cobertura
+      summaryFileLocation: '$(Build.SourcesDirectory)/target/site/jacoco-aggregate/jacoco.xml'  # Ubicación del archivo de cobertura
+      reportDirectory: '$(Build.SourcesDirectory)/target/site/jacoco-aggregate'
+      failIfCoverageEmpty: true
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Ruta donde se guarda el artefacto
+      ArtifactName: 'drop'  # Nombre que tendrá el artefacto
