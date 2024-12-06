@@ -23,8 +23,8 @@ steps:
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: 'JaCoCo'  # Usamos JaCoCo como herramienta de cobertura
-      summaryFileLocation: '$(Build.SourcesDirectory)/target/site/jacoco-aggregate/jacoco.xml'  # Ubicación del archivo de cobertura
-      reportDirectory: '$(Build.SourcesDirectory)/target/site/jacoco-aggregate'
+      summaryFileLocation: '$(Build.SourcesDirectory)/target/site/jacoco/jacoco.xml'  # Ubicación del archivo de cobertura
+      reportDirectory: '$(Build.SourcesDirectory)/target/site/jacoco'
       failIfCoverageEmpty: true
   - task: PublishBuildArtifacts@1
     inputs:
