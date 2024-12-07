@@ -8,7 +8,12 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'acr-connection-sp'
+  imageRepository: 'app/integration'
+  containerRegistry: 'registroimagenesacr.azurecr.io'
+  dockerfilePath: 'Dockerfile'
+  tag: '$(Build.BuildId)'
 steps:
   - task: Maven@4
     inputs:
@@ -37,3 +42,12 @@ steps:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Ruta donde se guarda el artefacto
       ArtifactName: 'drop'  # Nombre que tendrá el artefacto
       publishLocation: 'Container'  # Ubicación predeterminada de los artefactos (Azure DevOps Container)
+  - task: Docker@2
+    displayName: Build and push an image to container registry
+    inputs:
+      command: buildAndPush
+      repository: $(imageRepository)
+      dockerfile: $(dockerfilePath)
+      containerRegistry: $(dockerRegistryServiceConnection)
+      tags: |
+       $(tag)
