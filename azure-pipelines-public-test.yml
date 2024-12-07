@@ -8,8 +8,9 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'acr-connection-sp'
+  dockerRegistryServiceConnection: '2dc65e09-0d48-4c0d-a2bd-86ae420a18b7'
   imageRepository: 'app/integration'
   containerRegistry: 'registroimagenesacr.azurecr.io'
   dockerfilePath: 'Dockerfile'
