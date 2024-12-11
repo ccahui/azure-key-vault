@@ -1,0 +1,14 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: KeyVaultTerminal  # Grupo de variables conectado al Key Vault
+
+steps:
+- script: |
+    echo "API Key 2: $(api-key-2)"   # Imprime el valor de api-key-2
+    echo "API Key 3: $(api-key-3)"   # Imprime el valor de api-key-3
+  displayName: 'Show Secrets'
