@@ -16,7 +16,6 @@ class IntegrationApplicationTests {
 	@Autowired
 	ValuesProperties valuesProperties;
 
-
 	@Test
 	void loadValuesPropertiesOk() {
 		assertNotNull(valuesProperties.getLocalValue());
