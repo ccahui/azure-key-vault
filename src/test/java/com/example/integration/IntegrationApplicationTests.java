@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(properties = "spring.config.name=application-test")
 class IntegrationApplicationTests {
 
+
 	@Autowired
 	ValuesProperties valuesProperties;
 
