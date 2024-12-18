@@ -14,7 +14,7 @@ steps:
     kubernetesServiceEndpoint: 'ClusterDesarrollo'
     namespace: 'desarrollo'
     command: 'apply'
-    arguments: '-f $(System.DefaultWorkingDirectory)/deployment.yaml'
+    arguments: '-f $(System.DefaultWorkingDirectory)/devops/deployment.yaml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
