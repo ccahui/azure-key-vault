@@ -13,5 +13,13 @@ steps:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'ClusterDesarrollo'
     namespace: 'desarrollo'
+    command: 'apply'
+    arguments: '-f $(System.DefaultWorkingDirectory)/deployment.yaml'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'ClusterDesarrollo'
+    namespace: 'desarrollo'
     command: 'get'
     arguments: 'pods'
+    displayName: 'Check Pods Status'
