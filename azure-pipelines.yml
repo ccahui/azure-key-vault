@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  global_variable: valueGlobal
+
+steps:
+- bash: |
+    echo "Using syntax: $(global_variable)"  # Imprime 'valueGlobal'
+    echo "Using environment: $GLOBAL_VARIABLE"  # No imprimirá nada porque no está disponible como variable de entorno.
+- bash: |
+    echo "Using environment: $GLOBAL_VARIABLE"  # Imprime 'valueGlobal'
+  env:
+    GLOBAL_VARIABLE: $(global_variable)
