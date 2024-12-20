@@ -9,11 +9,15 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  global_variable: valueGlobal
+  other_variable: valueVariable
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+steps:
+- bash: |
+    echo "Using syntax: $(other_variable)"  # Imprime 'valueGlobal'
+    echo "Using environment: $OTHER_VARIABLE"  # No imprimirá nada porque no está disponible como variable de entorno.
+- bash: |
+    echo "Using environment: $GLOBAL_VARIABLE"  # Imprime 'valueGlobal'
+  env:
+    GLOBAL_VARIABLE: $(global_variable)
