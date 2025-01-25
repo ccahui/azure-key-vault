@@ -50,6 +50,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>applicationinsights-runtime-attach</artifactId>
+			<version>3.4.14</version> <!-- Usa la última versión disponible -->
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

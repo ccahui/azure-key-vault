@@ -1,3 +1,8 @@
+logging:
+  level:
+    root: ERROR
+    com.azure: DEBUG
+    com.example.integration: INFO
 spring:
   application:
     name: integration
@@ -16,7 +21,4 @@ azure:
     client-id: ${AZURE_CLIENT_ID}
     client-secret: ${AZURE_CLIENT_SECRET}
     tenant-id: ${AZURE_TENANT_ID}
-logging:
-  level:
-    com.azure: DEBUG
 api-key-2: af
